@@ -40,3 +40,10 @@ gulp.task(
     done();
   })
 );
+
+gulp.task("watch", () => {
+  gulp.watch("src/js/*.js", gulp.task("scripts"));
+  gulp.watch("src/images/*", gulp.task("imageMin"));
+  gulp.watch("src/sass/*.scss", gulp.task("sass"));
+  gulp.watch("src/*.html", gulp.task("copyHtml"));
+});
