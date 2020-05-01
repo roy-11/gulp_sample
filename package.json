@@ -1,0 +1,22 @@
+{
+  "name": "gulpexapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryosuke-11/gulp_sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryosuke-11/gulp_sample/issues"
+  },
+  "homepage": "https://github.com/ryosuke-11/gulp_sample#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
