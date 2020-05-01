@@ -1,6 +1,7 @@
 const gulp = require("gulp");
 const imagemin = require("gulp-imagemin");
 const uglify = require("gulp-uglify");
+const sass = require("gulp-sass");
 
 // logs message
 gulp.task("message", () => {
@@ -20,6 +21,11 @@ gulp.task("imageMin", () => {
 // minify js
 gulp.task("minify", () => {
   gulp.src("src/js/*.js").pipe(uglify()).pipe(gulp.dest("dist/js"));
+});
+
+// minify js
+gulp.task("sass", () => {
+  gulp.src("src/sass/*.scss").pipe(sass()).on("error", sass.logError).pipe(gulp.dest("dist/css"));
 });
 
 gulp.task("default", () => {
