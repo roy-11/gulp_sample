@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const imagemin = require("gulp-imagemin");
 
 // logs message
 gulp.task("message", () => {
@@ -8,6 +9,11 @@ gulp.task("message", () => {
 // copy all html files
 gulp.task("copyHtml", () => {
   gulp.src("src/*.html").pipe(gulp.dest("dist"));
+});
+
+// optimize images
+gulp.task("imageMin", () => {
+  gulp.src("src/images/*").pipe(imagemin()).pipe(gulp.dest("dist/images"));
 });
 
 gulp.task("default", () => {
