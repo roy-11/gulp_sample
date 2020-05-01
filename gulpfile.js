@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const imagemin = require("gulp-imagemin");
 const uglify = require("gulp-uglify");
 const sass = require("gulp-sass");
+const concat = require("gulp-concat");
 
 // logs message
 gulp.task("message", (done) => {
@@ -22,20 +23,20 @@ gulp.task("imageMin", (done) => {
 });
 
 // minify js
-gulp.task("minify", (done) => {
-  gulp.src("src/js/*.js").pipe(uglify()).pipe(gulp.dest("dist/js"));
-  done();
-});
-
-// minify js
 gulp.task("sass", (done) => {
   gulp.src("src/sass/*.scss").pipe(sass()).on("error", sass.logError).pipe(gulp.dest("dist/css"));
   done();
 });
 
+// scripts
+gulp.task("scripts", (done) => {
+  gulp.src("src/js/*.js").pipe(concat("main.js")).pipe(uglify()).pipe(gulp.dest("dist/js"));
+  done();
+});
+
 gulp.task(
   "default",
-  gulp.parallel("message", "copyHtml", "imageMin", "minify", "sass", (done) => {
+  gulp.parallel("message", "copyHtml", "imageMin", "scripts", "sass", (done) => {
     done();
   })
 );
